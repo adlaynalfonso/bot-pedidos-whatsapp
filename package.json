@@ -12,7 +12,7 @@
     "axios": "^1.10.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
-    "openai": "^5.9.0"
+    "openai": "^3.3.0"
   },
   "description": ""
 }

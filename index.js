@@ -25,6 +25,10 @@ app.post('/webhook', async (req, res) => {
     const access_token = process.env.ACCESS_TOKEN;
     const phone_number_id = process.env.PHONE_NUMBER_ID;
     const openai_api_key = process.env.OPENAI_API_KEY;
+    const configuration = new Configuration({
+        apiKey: openai_api_key,
+      });
+      const openai = new OpenAIApi(configuration);
   try {
     const message = req.body.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
     const from = message?.from;
@@ -77,11 +81,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Bot corriendo en el puerto ${PORT}`);
 });
-
-
-// ANTES:
-const access_token = "EAAQZBSQSxUxUBPO8RIMLwFv12U9...etc";
-const phone_number_id = "769915626196229";
-const openai_api_key = "sk-proj-...";
-
-// DESPUÉS:
